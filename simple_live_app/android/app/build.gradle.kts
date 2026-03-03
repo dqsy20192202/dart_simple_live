@@ -39,21 +39,21 @@ android {
         versionName = flutter.versionName
     }
 
-    signingConfigs {
-        create("release") {
-            keyAlias = keystoreProperties["keyAlias"] as String
-            keyPassword = keystoreProperties["keyPassword"] as String
-            storeFile = keystoreProperties["storeFile"]?.let { file(it) }
-            storePassword = keystoreProperties["storePassword"] as String
-            isV1SigningEnabled = true
-            isV2SigningEnabled = true
-        }
-    }
+#   signingConfigs {
+  #      create("release") {
+   #         keyAlias = keystoreProperties["keyAlias"] as String
+   #         keyPassword = keystoreProperties["keyPassword"] as String
+   #         storeFile = keystoreProperties["storeFile"]?.let { file(it) }
+    #        storePassword = keystoreProperties["storePassword"] as String
+   #         isV1SigningEnabled = true
+ #           isV2SigningEnabled = true
+#        }
+#    }
 
     buildTypes {
         release {
             // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("release")
+            signingConfig = signingConfigs.getByName("debug")
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(
